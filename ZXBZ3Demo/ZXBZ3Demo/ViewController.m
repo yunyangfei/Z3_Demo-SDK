@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationItem.title = @"众兴邦Demo";
+    self.navigationItem.title = @"Demo";
     
     self.view.backgroundColor = [UIColor cyanColor];
     

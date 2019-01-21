@@ -35,7 +35,7 @@
 //设置WiFi名称, 可为空
 - (void)setWiFiName:(NSString *)name;
 
-//设置WiFi密码, 老设备可为空, 新设备不可为空
+//设置WiFi密码, 设备版本号(Version)不小于200时可为空, 否则不可为空
 - (void)setWiFiPassword:(NSString *)pwd;
 
 /**
