@@ -1,4 +1,5 @@
 # Z3设备SDK集成说明：
+[![CocoaPods](https://img.shields.io/cocoapods/v/Z3_Demo-SDK.svg?style=flat)](https://github.com/yunyangfei/Z3_Demo-SDK)
 
 ### 1.将ZXBZ3Lib文件夹拖入工程；
 ### 2.在TARGETS->Build Phases->Link Binary With Libraries中添加依赖库:
