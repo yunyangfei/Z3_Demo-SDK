@@ -17,9 +17,18 @@
 		4974438B21C50019008D7F6E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4974438121C4F144008D7F6E /* CFNetwork.framework */; };
 		497443B921C502D1008D7F6E /* FileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497443B721C502D1008D7F6E /* FileController.m */; };
 		497443BD21C50524008D7F6E /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 497443BC21C50524008D7F6E /* Tools.m */; };
-		497443F921C519F7008D7F6E /* tupian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 497443F821C519F7008D7F6E /* tupian.jpg */; };
-		4976014D21F16A8600E95B54 /* shiping.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4976014C21F16A8600E95B54 /* shiping.mp4 */; };
-		4976018B21F1B70100E95B54 /* libZXBZ3Lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4976018A21F1B70100E95B54 /* libZXBZ3Lib.a */; };
+		497443F921C519F7008D7F6E /* pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 497443F821C519F7008D7F6E /* pic.jpg */; };
+		4976019121F1BCFB00E95B54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4976019021F1BCFB00E95B54 /* icon.png */; };
+		49FBF48222E2B9630086953F /* WSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF47922E2B9630086953F /* WSProgressHUD.m */; };
+		49FBF48322E2B9630086953F /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF47D22E2B9630086953F /* FBShimmeringLayer.m */; };
+		49FBF48422E2B9630086953F /* WSIndefiniteAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF47E22E2B9630086953F /* WSIndefiniteAnimationView.m */; };
+		49FBF48522E2B9630086953F /* WSProgressBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49FBF47F22E2B9630086953F /* WSProgressBundle.bundle */; };
+		49FBF48622E2B9630086953F /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF48022E2B9630086953F /* MMMaterialDesignSpinner.m */; };
+		49FBF48722E2B9630086953F /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF48122E2B9630086953F /* FBShimmeringView.m */; };
+		49FBF48C22E2C20B0086953F /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FBF48A22E2C20B0086953F /* ViewController.xib */; };
+		49FBF49022E319360086953F /* hamburger.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 49FBF48F22E319360086953F /* hamburger.mp4 */; };
+		49FBF49222E31AAC0086953F /* Firmware3214.bin in Resources */ = {isa = PBXBuildFile; fileRef = 49FBF49122E31AAC0086953F /* Firmware3214.bin */; };
+		49FBF49722E3209D0086953F /* libZXBZ3Lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FBF49622E3209D0086953F /* libZXBZ3Lib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +48,26 @@
 		497443B721C502D1008D7F6E /* FileController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileController.m; sourceTree = "<group>"; };
 		497443BB21C50524008D7F6E /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		497443BC21C50524008D7F6E /* Tools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
-		497443F821C519F7008D7F6E /* tupian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tupian.jpg; sourceTree = "<group>"; };
-		4976014C21F16A8600E95B54 /* shiping.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = shiping.mp4; sourceTree = "<group>"; };
-		4976018821F1B70100E95B54 /* ZXBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXBFileManager.h; sourceTree = "<group>"; };
-		4976018921F1B70100E95B54 /* ZXBSocketCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXBSocketCommand.h; sourceTree = "<group>"; };
-		4976018A21F1B70100E95B54 /* libZXBZ3Lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libZXBZ3Lib.a; sourceTree = "<group>"; };
+		497443F821C519F7008D7F6E /* pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic.jpg; sourceTree = "<group>"; };
+		4976019021F1BCFB00E95B54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		49FBF47622E2B9630086953F /* FBShimmering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmering.h; sourceTree = "<group>"; };
+		49FBF47722E2B9630086953F /* WSIndefiniteAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSIndefiniteAnimationView.h; sourceTree = "<group>"; };
+		49FBF47822E2B9630086953F /* FBShimmeringLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringLayer.h; sourceTree = "<group>"; };
+		49FBF47922E2B9630086953F /* WSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSProgressHUD.m; sourceTree = "<group>"; };
+		49FBF47A22E2B9630086953F /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
+		49FBF47B22E2B9630086953F /* FBShimmeringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringView.h; sourceTree = "<group>"; };
+		49FBF47C22E2B9630086953F /* WSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSProgressHUD.h; sourceTree = "<group>"; };
+		49FBF47D22E2B9630086953F /* FBShimmeringLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringLayer.m; sourceTree = "<group>"; };
+		49FBF47E22E2B9630086953F /* WSIndefiniteAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSIndefiniteAnimationView.m; sourceTree = "<group>"; };
+		49FBF47F22E2B9630086953F /* WSProgressBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WSProgressBundle.bundle; sourceTree = "<group>"; };
+		49FBF48022E2B9630086953F /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
+		49FBF48122E2B9630086953F /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
+		49FBF48A22E2C20B0086953F /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		49FBF48F22E319360086953F /* hamburger.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hamburger.mp4; sourceTree = "<group>"; };
+		49FBF49122E31AAC0086953F /* Firmware3214.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Firmware3214.bin; sourceTree = "<group>"; };
+		49FBF49422E3209D0086953F /* ZXBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXBFileManager.h; sourceTree = "<group>"; };
+		49FBF49522E3209D0086953F /* ZXBSocketCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXBSocketCommand.h; sourceTree = "<group>"; };
+		49FBF49622E3209D0086953F /* libZXBZ3Lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libZXBZ3Lib.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +78,7 @@
 				4974438B21C50019008D7F6E /* CFNetwork.framework in Frameworks */,
 				4974438A21C50013008D7F6E /* libz.tbd in Frameworks */,
 				4974438621C4F57A008D7F6E /* libiconv.tbd in Frameworks */,
-				4976018B21F1B70100E95B54 /* libZXBZ3Lib.a in Frameworks */,
+				49FBF49722E3209D0086953F /* libZXBZ3Lib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,12 +105,14 @@
 		4974435C21C4EA62008D7F6E /* ZXBZ3Demo */ = {
 			isa = PBXGroup;
 			children = (
-				4976018721F1B70100E95B54 /* ZXBZ3Lib */,
+				49FBF49322E3209D0086953F /* ZXBZ3Lib */,
+				49FBF47522E2B9630086953F /* WSProgressHUD */,
 				497443F721C519EF008D7F6E /* Resource */,
 				4974435D21C4EA62008D7F6E /* AppDelegate.h */,
 				4974435E21C4EA62008D7F6E /* AppDelegate.m */,
 				4974437821C4ED27008D7F6E /* ViewController.h */,
 				4974437921C4ED27008D7F6E /* ViewController.m */,
+				49FBF48A22E2C20B0086953F /* ViewController.xib */,
 				497443B621C502D1008D7F6E /* FileController.h */,
 				497443B721C502D1008D7F6E /* FileController.m */,
 				497443BB21C50524008D7F6E /* Tools.h */,
@@ -112,18 +138,39 @@
 		497443F721C519EF008D7F6E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				4976014C21F16A8600E95B54 /* shiping.mp4 */,
-				497443F821C519F7008D7F6E /* tupian.jpg */,
+				49FBF49122E31AAC0086953F /* Firmware3214.bin */,
+				4976019021F1BCFB00E95B54 /* icon.png */,
+				49FBF48F22E319360086953F /* hamburger.mp4 */,
+				497443F821C519F7008D7F6E /* pic.jpg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		4976018721F1B70100E95B54 /* ZXBZ3Lib */ = {
+		49FBF47522E2B9630086953F /* WSProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				4976018821F1B70100E95B54 /* ZXBFileManager.h */,
-				4976018921F1B70100E95B54 /* ZXBSocketCommand.h */,
-				4976018A21F1B70100E95B54 /* libZXBZ3Lib.a */,
+				49FBF47622E2B9630086953F /* FBShimmering.h */,
+				49FBF47722E2B9630086953F /* WSIndefiniteAnimationView.h */,
+				49FBF47822E2B9630086953F /* FBShimmeringLayer.h */,
+				49FBF47922E2B9630086953F /* WSProgressHUD.m */,
+				49FBF47A22E2B9630086953F /* MMMaterialDesignSpinner.h */,
+				49FBF47B22E2B9630086953F /* FBShimmeringView.h */,
+				49FBF47C22E2B9630086953F /* WSProgressHUD.h */,
+				49FBF47D22E2B9630086953F /* FBShimmeringLayer.m */,
+				49FBF47E22E2B9630086953F /* WSIndefiniteAnimationView.m */,
+				49FBF47F22E2B9630086953F /* WSProgressBundle.bundle */,
+				49FBF48022E2B9630086953F /* MMMaterialDesignSpinner.m */,
+				49FBF48122E2B9630086953F /* FBShimmeringView.m */,
+			);
+			path = WSProgressHUD;
+			sourceTree = "<group>";
+		};
+		49FBF49322E3209D0086953F /* ZXBZ3Lib */ = {
+			isa = PBXGroup;
+			children = (
+				49FBF49422E3209D0086953F /* ZXBFileManager.h */,
+				49FBF49522E3209D0086953F /* ZXBSocketCommand.h */,
+				49FBF49622E3209D0086953F /* libZXBZ3Lib.a */,
 			);
 			path = ZXBZ3Lib;
 			sourceTree = "<group>";
@@ -185,10 +232,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4976014D21F16A8600E95B54 /* shiping.mp4 in Resources */,
+				49FBF49022E319360086953F /* hamburger.mp4 in Resources */,
+				4976019121F1BCFB00E95B54 /* icon.png in Resources */,
 				4974436A21C4EA68008D7F6E /* LaunchScreen.storyboard in Resources */,
+				49FBF48C22E2C20B0086953F /* ViewController.xib in Resources */,
 				4974436721C4EA68008D7F6E /* Assets.xcassets in Resources */,
-				497443F921C519F7008D7F6E /* tupian.jpg in Resources */,
+				49FBF49222E31AAC0086953F /* Firmware3214.bin in Resources */,
+				497443F921C519F7008D7F6E /* pic.jpg in Resources */,
+				49FBF48522E2B9630086953F /* WSProgressBundle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,9 +252,14 @@
 			files = (
 				4974436D21C4EA68008D7F6E /* main.m in Sources */,
 				497443BD21C50524008D7F6E /* Tools.m in Sources */,
+				49FBF48722E2B9630086953F /* FBShimmeringView.m in Sources */,
 				4974437B21C4ED27008D7F6E /* ViewController.m in Sources */,
+				49FBF48322E2B9630086953F /* FBShimmeringLayer.m in Sources */,
 				4974435F21C4EA62008D7F6E /* AppDelegate.m in Sources */,
+				49FBF48422E2B9630086953F /* WSIndefiniteAnimationView.m in Sources */,
+				49FBF48222E2B9630086953F /* WSProgressHUD.m in Sources */,
 				497443B921C502D1008D7F6E /* FileController.m in Sources */,
+				49FBF48622E2B9630086953F /* MMMaterialDesignSpinner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

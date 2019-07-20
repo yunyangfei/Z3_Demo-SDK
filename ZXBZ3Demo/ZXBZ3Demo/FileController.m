@@ -10,6 +10,7 @@
 #import "ZXBSocketCommand.h"
 #import "ZXBFileManager.h"
 #import "Tools.h"
+#import "WSProgressHUD.h"
 
 @interface FileController () <ZXBCommandDelegate, ZXBFileDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -18,7 +19,9 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 
-@property (nonatomic, copy) NSString *fileName;//临时文件名
+@property (nonatomic, copy) NSString *filePath;//临时文件路径
+@property (nonatomic, copy) NSString *deleteName;//要删除的文件名
+@property (nonatomic, strong) WSProgressHUD *hud;
 
 @end
 
@@ -28,7 +31,19 @@
     [super viewWillAppear:animated];
     self.socketCommand.delegate = self;
 }
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.socketCommand.delegate = nil;//先delegate为nil，否则会弹出disconnect
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if (viewControllers==nil || [viewControllers indexOfObject:self]==NSNotFound){
+        //pop操作
+        self.socketCommand = nil;
+        [self.fileManager stopAndCancelAllRequests];
+    }
+    //[self stopTimer];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -42,8 +57,21 @@
     self.navigationItem.rightBarButtonItems = @[twoBtn, oneBtn];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回播放" style:UIBarButtonItemStylePlain target:self action:@selector(leftBtnAction)];
     
-    //先发送请求更新效果文件命令, 之后才能进行文件操作
-    [self.socketCommand requestUploadDevice:self.infoDic[@"DisplayImageId"]];
+    /**
+     注意:1.此处Z3设备和Z3s操作有所区别, Z3_480和Z3s操作一样
+         2.我们根据软件版本来判断Z3和Z3s, 软件版本小于200的为Z3
+         3.Z3s可直接获取到设备内的文件列表, 但是发送文件前先调用请求更新的命令, 设备会关掉蓝牙, 否则传输速度很慢.
+         4.Z3设备需要先调用请求更新的命令, 否则获取不到设备内的文件列表.
+    */
+    if ([self.infoDic[@"Version"] integerValue] >= 200){
+        //Z3s, 直接去文件列表
+        [self showHudLoadingString:@"加载中"];
+        [self.fileManager getDeviceFileList];
+    }else{
+        //Z3设备, 先请求更新效果文件
+        [self showHudLoadingString:@"加载中"];
+        [self.socketCommand requestUploadDevice];
+    }
 }
 
 - (ZXBSocketCommand *)socketCommand
@@ -87,24 +115,34 @@
 //上传图片
 - (void)rightBtnOneAction
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"tupian" ofType:@"jpg"];
-    //self.fileName = [path lastPathComponent];
-    [self.fileManager uploadFilePath:path];
-    
+    self.filePath = [[NSBundle mainBundle] pathForResource:@"pic" ofType:@"jpg"];
+    if ([self.infoDic[@"Version"] integerValue] >= 200){
+        //Z3s, 先请求更新效果文件, 关掉蓝牙
+        [self showHudLoadingString:@"加载中"];
+        [self.socketCommand requestUploadDevice];
+    }else{
+        //Z3设备, 已经进入文件操作, 直接上传
+        [self showHudLoadingString:@"加载中"];
+        [self.fileManager uploadFilePath:self.filePath];
+    }
 }
 //上传视频
 - (void)rightBtnTwoAction
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"shiping" ofType:@"mp4"];
-    //self.fileName = [path lastPathComponent];
-    [self.fileManager uploadFilePath:path];
+    self.filePath = [[NSBundle mainBundle] pathForResource:@"hamburger" ofType:@"mp4"];
+    if ([self.infoDic[@"Version"] integerValue] >= 200){
+        //Z3s, 先请求更新效果文件, 关掉蓝牙
+        [self showHudLoadingString:@"加载中"];
+        [self.socketCommand requestUploadDevice];
+    }else{
+        //Z3设备, 已经进入文件操作, 直接上传
+        [self showHudLoadingString:@"加载中"];
+        [self.fileManager uploadFilePath:self.filePath];
+    }
 }
 //返回播放
 - (void)leftBtnAction
 {
-    //可先将代理置为nil
-    self.socketCommand.delegate = nil;
-    [self.socketCommand deinit];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -153,8 +191,9 @@
     WeakSelf(self);
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         
-        self.fileName = self.dataArr[indexPath.row];
-        [weakself.fileManager deleteFileAtName:self.fileName];
+        [weakself showHudLoadingString:@"加载中"];
+        self.deleteName = self.dataArr[indexPath.row];
+        [weakself.fileManager deleteFileAtName:self.deleteName];
     }];
     deleteAction.backgroundColor = [UIColor redColor];
     
@@ -166,19 +205,30 @@
 
 #pragma mark - ZXBCommandDelegate
 - (void)didReceivedInfo:(NSString *)info{
+    [self hideHud];
     self.infoDic = [Tools getURLParameters:info];
     NSLog(@">>>>%@", self.infoDic);
 }
 
 - (void)didDisconnected{
+    [self hideHud];
     NSLog(@">>>>设备断开连接");
 }
 
 //更新显示      1->可以更新；2->不需要更新，已经有此效果文件；3->设备异常不能更新
 - (void)didUploadResult:(int)code{
     if (code == 1){
-        //进行文件操作:获取设备文件列表
-        [self.fileManager getDeviceFileList];
+        if ([self.infoDic[@"Version"] integerValue] >= 200){
+            //Z3s, 开始上传文件
+            if (self.filePath){
+                [self.fileManager uploadFilePath:self.filePath];
+            }
+        }else{
+            //Z3设备, 进行文件操作:获取设备文件列表
+            [self.fileManager getDeviceFileList];
+        }
+    }else{
+        [self hideHud];
     }
 }
 
@@ -187,6 +237,7 @@
 //请求列表完成
 - (void)didCompleteListRequest:(NSArray *)list{
     NSLog(@">>>>设备文件列表:%@", list);
+    [self hideHud];
     [self.dataArr removeAllObjects];
     [self.dataArr addObjectsFromArray:list];
     [self.tableView reloadData];
@@ -195,8 +246,9 @@
 //完成了删除
 - (void)didCompleteDeleteRequest{
     NSLog(@">>>>>完成了删除");
-    if (self.fileName){
-        [self.dataArr removeObject:self.fileName];
+    [self hideHud];
+    if (self.deleteName){
+        [self.dataArr removeObject:self.deleteName];
     }
     [self.tableView reloadData];
     if ([self.infoDic[@"Version"] intValue] >= 200){
@@ -208,6 +260,7 @@
 //完成进度
 - (void)didCompleteProgress:(float)progress{
     NSLog(@"进度====>%f", progress);
+    [self showHudLoadingString:[NSString stringWithFormat:@"上传中%d%%", (int)(progress*100)]];
 }
 
 //上传完成
@@ -217,6 +270,8 @@
     if ([self.infoDic[@"Version"] intValue] >= 200){
         //发送立马更新命令,可以不管结果
         [self.socketCommand sendFileEnd];
+    }else{
+        [self hideHud];
     }
 }
 
@@ -225,6 +280,26 @@
     NSLog(@">>>>>请求失败了====Error:%@", error);
 }
 
+
+
+- (WSProgressHUD *)hud{
+    if (!_hud){
+        _hud = [[WSProgressHUD alloc] initWithView:self.view];
+        [self.view addSubview:_hud];
+    }
+    return _hud;
+}
+- (void)showHudLoadingString:(NSString *)str
+{
+    [self.hud setProgressHUDIndicatorStyle:WSProgressHUDIndicatorSmallLight];
+    [self.hud showWithString:str maskType:WSProgressHUDMaskTypeClear];
+}
+- (void)hideHud
+{
+    [self.hud dismiss];
+    [self.hud removeFromSuperview];
+    self.hud = nil;
+}
 
 
 
