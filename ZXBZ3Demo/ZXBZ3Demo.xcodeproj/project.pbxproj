@@ -19,6 +19,7 @@
 		497443BD21C50524008D7F6E /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 497443BC21C50524008D7F6E /* Tools.m */; };
 		497443F921C519F7008D7F6E /* pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 497443F821C519F7008D7F6E /* pic.jpg */; };
 		4976019121F1BCFB00E95B54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4976019021F1BCFB00E95B54 /* icon.png */; };
+		49F6DD8D23ACCF3F00E67AA3 /* Firmware3221.bin in Resources */ = {isa = PBXBuildFile; fileRef = 49F6DD8C23ACCF3F00E67AA3 /* Firmware3221.bin */; };
 		49FBF48222E2B9630086953F /* WSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF47922E2B9630086953F /* WSProgressHUD.m */; };
 		49FBF48322E2B9630086953F /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF47D22E2B9630086953F /* FBShimmeringLayer.m */; };
 		49FBF48422E2B9630086953F /* WSIndefiniteAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF47E22E2B9630086953F /* WSIndefiniteAnimationView.m */; };
@@ -27,7 +28,6 @@
 		49FBF48722E2B9630086953F /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF48122E2B9630086953F /* FBShimmeringView.m */; };
 		49FBF48C22E2C20B0086953F /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FBF48A22E2C20B0086953F /* ViewController.xib */; };
 		49FBF49022E319360086953F /* hamburger.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 49FBF48F22E319360086953F /* hamburger.mp4 */; };
-		49FBF49222E31AAC0086953F /* Firmware3214.bin in Resources */ = {isa = PBXBuildFile; fileRef = 49FBF49122E31AAC0086953F /* Firmware3214.bin */; };
 		49FBF49722E3209D0086953F /* libZXBZ3Lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FBF49622E3209D0086953F /* libZXBZ3Lib.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +50,7 @@
 		497443BC21C50524008D7F6E /* Tools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 		497443F821C519F7008D7F6E /* pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic.jpg; sourceTree = "<group>"; };
 		4976019021F1BCFB00E95B54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		49F6DD8C23ACCF3F00E67AA3 /* Firmware3221.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Firmware3221.bin; sourceTree = "<group>"; };
 		49FBF47622E2B9630086953F /* FBShimmering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmering.h; sourceTree = "<group>"; };
 		49FBF47722E2B9630086953F /* WSIndefiniteAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSIndefiniteAnimationView.h; sourceTree = "<group>"; };
 		49FBF47822E2B9630086953F /* FBShimmeringLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringLayer.h; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		49FBF48122E2B9630086953F /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
 		49FBF48A22E2C20B0086953F /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		49FBF48F22E319360086953F /* hamburger.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hamburger.mp4; sourceTree = "<group>"; };
-		49FBF49122E31AAC0086953F /* Firmware3214.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Firmware3214.bin; sourceTree = "<group>"; };
 		49FBF49422E3209D0086953F /* ZXBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXBFileManager.h; sourceTree = "<group>"; };
 		49FBF49522E3209D0086953F /* ZXBSocketCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXBSocketCommand.h; sourceTree = "<group>"; };
 		49FBF49622E3209D0086953F /* libZXBZ3Lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libZXBZ3Lib.a; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		497443F721C519EF008D7F6E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				49FBF49122E31AAC0086953F /* Firmware3214.bin */,
+				49F6DD8C23ACCF3F00E67AA3 /* Firmware3221.bin */,
 				4976019021F1BCFB00E95B54 /* icon.png */,
 				49FBF48F22E319360086953F /* hamburger.mp4 */,
 				497443F821C519F7008D7F6E /* pic.jpg */,
@@ -236,8 +236,8 @@
 				4976019121F1BCFB00E95B54 /* icon.png in Resources */,
 				4974436A21C4EA68008D7F6E /* LaunchScreen.storyboard in Resources */,
 				49FBF48C22E2C20B0086953F /* ViewController.xib in Resources */,
+				49F6DD8D23ACCF3F00E67AA3 /* Firmware3221.bin in Resources */,
 				4974436721C4EA68008D7F6E /* Assets.xcassets in Resources */,
-				49FBF49222E31AAC0086953F /* Firmware3214.bin in Resources */,
 				497443F921C519F7008D7F6E /* pic.jpg in Resources */,
 				49FBF48522E2B9630086953F /* WSProgressBundle.bundle in Resources */,
 			);

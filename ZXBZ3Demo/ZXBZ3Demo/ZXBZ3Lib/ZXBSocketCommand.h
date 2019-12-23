@@ -38,9 +38,10 @@
 /**
  绑定用户
  @param userStr 用户id
- @param device 设备的MAC地址(DeviceMacAdd)
+ @param nameStr 设置设备名字
+ @param domainStr 绑定域名 (www.wiikk.cn:8088)
  */
-- (void)bingUser:(NSString *)userStr deviceMac:(NSString *)device;
+- (void)bingUser:(NSString *)userStr deviceName:(NSString *)nameStr domain:(NSString *)domainStr;
 
 /**
  连接到路由器

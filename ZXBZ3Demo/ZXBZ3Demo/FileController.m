@@ -143,6 +143,7 @@
 //返回播放
 - (void)leftBtnAction
 {
+    [self.socketCommand sendFileEnd];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -185,6 +186,12 @@
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     return [[UIView alloc] init];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self.socketCommand getCurrentPlayingFileName:self.dataArr[indexPath.row]];
 }
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -230,6 +237,11 @@
     }else{
         [self hideHud];
     }
+}
+//返回当前正在播放的文件
+- (void)didCurrentPlayFileName:(NSString *)nameStr
+{
+    NSLog(@">>>>正在播放:%@", nameStr);
 }
 
 

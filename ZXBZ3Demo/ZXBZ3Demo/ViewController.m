@@ -109,7 +109,7 @@
 #warning 用户id需要网络版获取, 本SDK只提供单机版
                     //先绑定用户, 绑定结果后 didBingUsersResult
                     [weakself showHudLoadingString:@"加载中"];
-                    [weakself.socketCommand bingUser:@"841" deviceMac:self.infoDic[@"DeviceMacAdd"]];
+                    [weakself.socketCommand bingUser:@"841" deviceName:@"测试设备" domain:@"www.wiikk.cn:8088"];
                 }];
                 [alertCtr addAction:cancel];
                 [alertCtr addAction:okBtn];
@@ -127,13 +127,14 @@
             [self.socketCommand setWiFiPassword:@"12345678"];
         }   break;
         case 6:{        //检查更新
-            //Z3s设备(版本号(Version)不小于200时可用), 否则不可更新
-            if ([self.infoDic[@"Version"] intValue] >= 200){
-                NSString *path = [[NSBundle mainBundle] pathForResource:@"Firmware3214" ofType:@"bin"];
+            //注意: 该升级包(Firmware3221.bin)仅可升级Z3H设备
+            NSInteger hardVer = [self.infoDic[@"HardVersion"] integerValue];
+            if (hardVer>=480 && hardVer<=499){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"Firmware3221" ofType:@"bin"];
                 [self showHudLoadingString:@"加载中"];
                 [self.socketCommand updataDeviceWithBinPath:path];
             }else{
-                [WSProgressHUD showWarningWithStatus:@"不需要升级"];
+                [WSProgressHUD showWarningWithStatus:@"升级包为Z3H"];
             }
         }   break;
         case 7:{        //断开连接
